@@ -6,21 +6,35 @@
 <div class="container">
     <br>
     <h1>Login</h1>
-    <form>
+    {% with messages = get_flashed_messages() %}
+    <form action="" method="POST">
+        {{ form.hidden_tag() }}
         <div class="row">
             <div class="six columns">
-                <label for="usrNameEmail">Username or e-mail</label>
-                <input class="u-full-width" placeholder="" id="usrNameEmail" type="email">
+                {{ form.username.label }}
+                {{ form.username }}
+                {% for error in form.username.errors %}
+                <br><span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
             </div>
         </div>
         <div class="row">
             <div class="six columns">
-                <label for="passwd">Password</label>
-                <input class="u-full-width" placeholder="" id="passwd" type="password">
+                {{ form.passwd.label }}
+                {{ form.passwd }}
+                {% for error in form.passwd.errors %}
+                <br><span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
             </div>
         </div>
+        {% if messages %}
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+        {% endif %}
         <input class="button-primary" value="Login" type="submit">
     </form>
+    {% endwith %}
 
     <div class="row">
         <p>Not a member? <a href="/register">Register now</a>!</p>

@@ -6,29 +6,44 @@
 <div class="container">
     <br>
     <h1>Register</h1>
-    <form>
+    {% with messages = get_flashed_messages() %}
+    <form action="" method="POST">
+        {{ form.hidden_tag() }}
         <div class="row">
             <div class="six columns">
-                <label for="usrName">Username</label>
-                <input class="u-full-width" placeholder="" id="usrName" type="email">
-            </div>
-            <div class="six columns">
-                <label for="email">E-mail</label>
-                <input class="u-full-width" placeholder="" id="email" type="email">
+                {{ form.username.label }}
+                {{ form.username }}
+                {% for error in form.username.errors %}
+                <br><span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
             </div>
         </div>
         <div class="row">
             <div class="six columns">
-                <label for="passwd">Password</label>
-                <input class="u-full-width" placeholder="" id="passwd" type="password">
-            </div>
-            <div class="six columns">
-                <label for="confirmPasswd">Confirm Password</label>
-                <input class="u-full-width" placeholder="" id="confirmPasswd" type="password">
+                {{ form.passwd.label }}
+                {{ form.passwd }}
+                {% for error in form.passwd.errors %}
+                <br><span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
             </div>
         </div>
-        <input class="button-primary" value="REgister" type="submit">
+        <div class="row">
+            <div class="six columns">
+                {{ form.confirm_passwd.label }}
+                {{ form.confirm_passwd }}
+                {% for error in form.confirm_passwd.errors %}
+                <br><span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </div>
+        </div>
+        {% if messages %}
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+        {% endif %}
+        <input class="button-primary" value="Register" type="submit">
     </form>
+    {% endwith %}
 </div>
 
 

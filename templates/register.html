@@ -1,0 +1,35 @@
+{% extends "_layout.html" %}
+
+{% block body %}
+
+
+<div class="container">
+    <br>
+    <h1>Register</h1>
+    <form>
+        <div class="row">
+            <div class="six columns">
+                <label for="usrName">Username</label>
+                <input class="u-full-width" placeholder="" id="usrName" type="email">
+            </div>
+            <div class="six columns">
+                <label for="email">E-mail</label>
+                <input class="u-full-width" placeholder="" id="email" type="email">
+            </div>
+        </div>
+        <div class="row">
+            <div class="six columns">
+                <label for="passwd">Password</label>
+                <input class="u-full-width" placeholder="" id="passwd" type="password">
+            </div>
+            <div class="six columns">
+                <label for="confirmPasswd">Confirm Password</label>
+                <input class="u-full-width" placeholder="" id="confirmPasswd" type="password">
+            </div>
+        </div>
+        <input class="button-primary" value="REgister" type="submit">
+    </form>
+</div>
+
+
+{% endblock %}

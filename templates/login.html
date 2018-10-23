@@ -1,0 +1,28 @@
+{% extends "_layout.html" %}
+
+{% block body %}
+
+
+<div class="container">
+    <br>
+    <h1>Login</h1>
+    <form>
+        <div class="row">
+            <div class="six columns">
+                <label for="usrNameEmail">Username or e-mail</label>
+                <input class="u-full-width" placeholder="" id="usrNameEmail" type="email">
+            </div>
+        </div>
+        <div class="row">
+            <div class="six columns">
+                <label for="passwd">Password</label>
+                <input class="u-full-width" placeholder="" id="passwd" type="password">
+            </div>
+        </div>
+        <input class="button-primary" value="Login" type="submit">
+    </form>
+
+    <div class="row">
+        <p>Not a member? <a href="/register">Register now</a>!</p>
+    </div>
+</div> {% endblock %}

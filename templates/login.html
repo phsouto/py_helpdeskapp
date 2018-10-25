@@ -29,7 +29,7 @@
         </div>
         {% if messages %}
         {% for message in messages %}
-        <p>{{ message }}</p>
+        <p style="color: red; margin:0;">{{ message }}</p>
         {% endfor %}
         {% endif %}
         <input class="button-primary" value="Login" type="submit">
@@ -37,6 +37,6 @@
     {% endwith %}
 
     <div class="row">
-        <p>Not a member? <a href="/register">Register now</a>!</p>
+        <p>Not a member? <a href="/register/">Register now</a>!</p>
     </div>
 </div> {% endblock %}

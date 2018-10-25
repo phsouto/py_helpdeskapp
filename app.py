@@ -9,32 +9,37 @@ app.config.from_pyfile('config.py')
 
 
 @app.route('/')
-@app.route('/home')
+@app.route('/home/')
 def home():
     data = {'title': 'Home'}
     return render_template('home.html', data=data)
 
 
-@app.route('/login', methods=('GET', 'POST'))
+@app.route('/login/', methods=('GET', 'POST'))
 def login():
     data = {'title': 'Login'}
     form = FormLogin()
 
-    if form.validate_on_submit():
-        flash('Welcome back, mr ' + form.username.data)
+    if form.validate_on_submit() and form.is_valid():
+        return 'TODO: We need to log in the user now...'
+    elif form.validate_on_submit() and not form.is_valid():
+        flash('The username must have only letters, numbers and underscores')
+        flash('The password must have at least 8 characters')
 
     return render_template('login.html', data=data, form=form)
 
 
-@app.route('/register', methods=('GET', 'POST'))
+@app.route('/register/', methods=('GET', 'POST'))
 def register():
     data = {'title': 'Register'}
     form = FormRegister()
 
-    if form.passwd.data != form.confirm_passwd.data:
-        flash('The passwords must match')
-    else:
-        flash('You\'re now registered, mr ' + form.username.data)
+    if form.validate_on_submit() and form.is_valid():
+        return 'TODO: We need to add the user to the database...'
+    elif form.validate_on_submit() and not form.is_valid():
+        flash('The username must have only letters, numbers and underscores')
+        flash('The password must have at least 8 characters')
+        flash('The password and confirmation must match')
 
     return render_template('register.html', data=data, form=form)
 

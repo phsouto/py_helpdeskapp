@@ -43,6 +43,13 @@ def register():
 
     return render_template('register.html', data=data, form=form)
 
+@app.route('/new/', methods=('GET', 'POST'))
+def new():
+    return "To be implemented."
+
+@app.route('/mytickets/', methods=('GET', 'POST'))
+def mytickets():
+    return "To be implemented."
 
 if __name__ == '__main__':
     app.run()
